@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synapsis IA | Consultoría de Inteligencia Artificial</title>
+    <meta name="description"
+        content="Transformamos tu negocio con Inteligencia Artificial. Auditoría, Estrategia y Automatización para empresas visionarias.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#030014',
+                            primary: '#6366f1',
+                            accent: '#a855f7',
+                            neon: '#00f2ff',
+                            surface: '#0F0728',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .glass-panel-pro {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        .glass-panel-pro:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+        .text-neon-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: neon-pulse 2s ease-in-out infinite;
+        }
+        @keyframes neon-pulse {
+            0%, 100% {
+                filter: brightness(1);
+            }
+            50% {
+                filter: brightness(1.2);
+            }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 1s ease-out;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-slide-in-left {
+            animation: slideInLeft 0.8s ease-out;
+        }
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        .animate-slide-in-right {
+            animation: slideInRight 0.8s ease-out;
+        }
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        .card-glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+        .card-glass:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+        .gradient-purple {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .gradient-blue {
+            background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+        }
+        .gradient-pink {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        @media (max-width: 768px) {
+            .glass-panel-pro {
+                backdrop-filter: blur(5px);
+                -webkit-backdrop-filter: blur(5px);
+            }
+                        .animate-float {
+                animation: float 4s ease-in-out infinite;
+            }
+        }
+        .hover-glow:hover {
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.6);
+            transition: box-shadow 0.3s ease;
+        }
+        .hover-brightness:hover {
+            filter: brightness(1.1);
+            transition: filter 0.3s ease;
+        }
+        .btn-neon {
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+        }
+        .btn-neon:hover {
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.8);
+        }
+    </style>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="bg-brand-dark text-white overflow-x-hidden selection:bg-brand-neon selection:text-brand-dark">
+
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute inset-0 bg-circuit-pattern opacity-30"></div>
+        <div
+            class="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-brand-primary/10 rounded-full blur-[150px] animate-pulse">
+        </div>
+        <div class="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-brand-neon/10 rounded-full blur-[150px] animate-pulse"
+            style="animation-delay: 2s;"></div>
+    </div>
+
+    <nav id="navbar" class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl transition-all duration-300">
+        <div class="glass-panel-pro rounded-full px-8 py-4 flex justify-between items-center">
+            
+            <a href="#" class="flex items-center">
+                <img src="LOGO.png" alt="Synapsis IA Logo" class="h-16 md:h-20">
+            </a>
+
+            <div class="hidden md:flex items-center gap-10">
+                <a href="#services"
+                    class="text-sm font-medium text-gray-300 hover:text-brand-neon transition-all hover:scale-105">Servicios</a>
+                <a href="#process"
+                    class="text-sm font-medium text-gray-300 hover:text-brand-neon transition-all hover:scale-105">Proceso</a>
+                <a href="#results"
+                    class="text-sm font-medium text-gray-300 hover:text-brand-neon transition-all hover:scale-105">Resultados</a>
+                <a href="#cases"
+                    class="text-sm font-medium text-gray-300 hover:text-brand-neon transition-all hover:scale-105">Clientes</a>
+                <a href="#faq"
+                    class="text-sm font-medium text-gray-300 hover:text-brand-neon transition-all hover:scale-105">FAQ</a>
+                
+                <a href="/auditoria"
+                    class="text-sm font-medium text-brand-accent hover:text-brand-neon transition-all hover:scale-105">Acceso Auditores</a>
+
+                <a href="#contact"
+                    class="px-8 py-3 btn-neon text-white text-sm font-bold rounded-full shadow-[0_0_20px_rgba(99,102,241,0.4)]">
+                    Agenda Auditoría
+                </a>
+            </div>
+
+            <button class="md:hidden text-white" id="mobile-menu-btn">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu"
+            class="hidden md:hidden absolute top-full left-0 w-full mt-4 glass-panel-pro rounded-2xl p-8 flex flex-col gap-6 shadow-2xl z-50">
+            <a href="#services" class="text-lg text-gray-300 hover:text-brand-neon">Servicios</a>
+            <a href="#process" class="text-lg text-gray-300 hover:text-brand-neon">Proceso</a>
+            <a href="#results" class="text-lg text-gray-300 hover:text-brand-neon">Resultados</a>
+            <a href="#cases" class="text-lg text-gray-300 hover:text-brand-neon">Clientes</a>
+            <a href="#faq" class="text-lg text-gray-300 hover:text-brand-neon">FAQ</a>
+            
+            <a href="/auditoria" class="text-lg text-brand-accent hover:text-brand-neon">Acceso Auditores</a>
+
+            <a href="#contact" class="text-brand-neon font-bold text-lg">Agenda Auditoría</a>
+        </div>
+    </nav>
+
+    <section class="min-h-screen flex items-center justify-center relative pt-40 pb-20 z-10 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 text-center relative z-20">
+
+            <div
+                class="inline-flex items-center gap-3 px-6 py-3 rounded-full glass-panel-pro mb-12 animate-float border border-brand-neon/30">
+                <span class="w-2 h-2 rounded-full bg-brand-neon animate-ping"></span>
+                <span class="text-sm font-bold text-brand-neon tracking-widest uppercase shadow-neon">Agencia del
+                    Futuro</span>
+            </div>
+
+            <h1 class="text-7xl md:text-9xl font-heading font-extrabold mb-10 leading-none tracking-tight">
+                <span
+                    class="block text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400">Transformamos</span>
+                <span class="block text-neon-gradient pb-4">El Futuro Hoy</span>
+            </h1>
+
+            <p class="text-2xl text-gray-400 max-w-3xl mx-auto mb-16 leading-relaxed font-light">
+                Synapsis IA fusiona estrategia de negocio con algoritmos avanzados. Creamos ecosistemas digitales
+                autónomos para empresas que lideran el mercado.
+            </p>
+
+            <div class="flex flex-col md:flex-row gap-8 justify-center items-center">
+                <a href="#contact"
+                    class="px-10 py-5 bg-white text-brand-dark font-bold text-lg rounded-full hover:scale-105 transition-all shadow-[0_0_40px_rgba(255,255,255,0.4)]">
+                    Comenzar Ahora
+                </a>
+                <a href="#process"
+                    class="px-10 py-5 glass-panel-pro text-white font-semibold text-lg rounded-full hover:bg-white/10 transition-all border border-white/20">
+                    Ver Proceso
+                </a>
+            </div>
+        </div>
+
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-primary/5 rounded-full blur-[100px] -z-10">
+        </div>
+    </section>
+
+    <section id="about" class="py-32 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+            <div class="reveal-text">
+                <h2 class="text-brand-neon font-bold tracking-[0.2em] uppercase mb-6 text-sm">Quiénes Somos</h2>
+                <h3 class="text-5xl md:text-6xl font-heading font-bold mb-8 leading-tight">
+                    Arquitectos de <br> <span class="text-neon-gradient">Realidades Digitales</span>
+                </h3>
+                <p class="text-gray-300 text-xl leading-relaxed mb-10 font-light">
+                    No somos una consultora tradicional. Somos un laboratorio de innovación aplicada. En Synapsis IA,
+                    decodificamos la complejidad de la Inteligencia Artificial para construir soluciones elegantes y
+                    potentes.
+                </p>
+                <div class="grid grid-cols-1 gap-6">
+                    <div class="glass-panel-pro p-6 rounded-2xl flex items-center gap-6">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-brand-primary/20 flex items-center justify-center text-brand-primary border border-brand-primary/30">
+                            <i data-lucide="cpu" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-lg text-white font-medium">Tecnología propietaria de auditoría.</span>
+                    </div>
+                    <div class="glass-panel-pro p-6 rounded-2xl flex items-center gap-6">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-brand-neon/20 flex items-center justify-center text-brand-neon border border-brand-neon/30">
+                            <i data-lucide="code-2" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-lg text-white font-medium">Desarrollo a medida, sin plantillas.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative flex justify-center items-center h-[500px] reveal-image">
+                <div class="abstract-orb absolute"></div>
+                <div
+                    class="absolute w-[400px] h-[400px] border border-brand-primary/20 rounded-full animate-[spin_10s_linear_infinite_reverse]">
+                </div>
+                <div
+                    class="absolute w-[200px] h-[200px] border border-brand-neon/30 rounded-full animate-[spin_5s_linear_infinite]">
+                </div>
+                <div
+                    class="glass-panel-pro p-8 rounded-2xl absolute backdrop-blur-md border-brand-accent/40 animate-float">
+                    <i data-lucide="brain-circuit" class="w-16 h-16 text-white mb-4"></i>
+                    <div class="text-2xl font-bold text-white">Synapsis Core</div>
+                    <div class="text-brand-neon text-sm">System Online</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-32 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-4xl mx-auto mb-24 reveal-text">
+                <h2 class="text-brand-neon font-bold tracking-[0.2em] uppercase mb-4 text-sm">Nuestros Servicios</h2>
+                <h3 class="text-5xl md:text-6xl font-heading font-bold mb-6">El Ecosistema Synapsis</h3>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="glass-panel-pro p-10 rounded-[2rem] group">
+                    <div
+                        class="w-20 h-20 bg-brand-primary/10 rounded-2xl flex items-center justify-center mb-10 group-hover:bg-brand-primary/20 transition-colors border border-brand-primary/30">
+                        <i data-lucide="search"
+                            class="w-10 h-10 text-brand-primary group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h4 class="text-3xl font-bold mb-6 group-hover:text-brand-primary transition-colors">Auditoría
+                        Neuronal</h4>
+                    <p class="text-gray-400 leading-relaxed text-lg">Escaneo profundo de tus flujos de datos para
+                        identificar latencias y oportunidades de automatización cognitiva.</p>
+                </div>
+
+                <div class="glass-panel-pro p-10 rounded-[2rem] group relative overflow-hidden">
+                    <div
+                        class="absolute top-0 right-0 w-40 h-40 bg-brand-accent/10 rounded-full blur-3xl -mr-20 -mt-20">
+                    </div>
+                    <div
+                        class="w-20 h-20 bg-brand-accent/10 rounded-2xl flex items-center justify-center mb-10 group-hover:bg-brand-accent/20 transition-colors border border-brand-accent/30">
+                        <i data-lucide="bot"
+                            class="w-10 h-10 text-brand-accent group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h4 class="text-3xl font-bold mb-6 group-hover:text-brand-accent transition-colors">Agentes
+                        Autónomos</h4>
+                    <p class="text-gray-400 leading-relaxed text-lg">Despliegue de trabajadores digitales inteligentes
+                        que operan 24/7, aprenden y evolucionan con tu negocio.</p>
+                </div>
+
+                <div class="glass-panel-pro p-10 rounded-[2rem] group">
+                    <div
+                        class="w-20 h-20 bg-brand-neon/10 rounded-2xl flex items-center justify-center mb-10 group-hover:bg-brand-neon/20 transition-colors border border-brand-neon/30">
+                        <i data-lucide="database"
+                            class="w-10 h-10 text-brand-neon group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h4 class="text-3xl font-bold mb-6 group-hover:text-brand-neon transition-colors">Predicción
+                        Cuántica</h4>
+                    <p class="text-gray-400 leading-relaxed text-lg">Modelos de ML avanzados para forecasting de alta
+                        precisión. Anticípate al mercado con datos, no intuición.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="py-32 relative z-10 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative">
+            <div class="text-center max-w-4xl mx-auto mb-24 reveal-text">
+                <h2 class="text-brand-neon font-bold tracking-[0.2em] uppercase mb-4 text-sm">Metodología</h2>
+                <h3 class="text-5xl md:text-6xl font-heading font-bold mb-6">Protocolo de Ascensión</h3>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="glass-panel-pro p-12 rounded-[2.5rem] relative group">
+                    <div
+                        class="absolute -top-8 left-10 text-8xl font-heading font-bold text-white/5 group-hover:text-brand-primary/20 transition-colors">
+                        01</div>
+                    <h4 class="text-3xl font-bold mb-6 text-brand-primary">Diagnóstico</h4>
+                    <p class="text-gray-400 text-lg">Mapeo completo de la infraestructura digital y detección de puntos
+                        de fricción.</p>
+                </div>
+
+                <div class="glass-panel-pro p-12 rounded-[2.5rem] relative group border-brand-accent/30">
+                    <div
+                        class="absolute -top-8 left-10 text-8xl font-heading font-bold text-white/5 group-hover:text-brand-accent/20 transition-colors">
+                        02</div>
+                    <h4 class="text-3xl font-bold mb-6 text-brand-accent">Sintetización</h4>
+                    <p class="text-gray-400 text-lg">Diseño de la arquitectura de IA y entrenamiento de modelos
+                        específicos.</p>
+                </div>
+
+                <div class="glass-panel-pro p-12 rounded-[2.5rem] relative group">
+                    <div
+                        class="absolute -top-8 left-10 text-8xl font-heading font-bold text-white/5 group-hover:text-brand-neon/20 transition-colors">
+                        03</div>
+                    <h4 class="text-3xl font-bold mb-6 text-brand-neon">Despliegue</h4>
+                    <p class="text-gray-400 text-lg">Integración en producción, monitoreo en tiempo real y optimización
+                        continua.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="results" class="py-32 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="glass-panel-pro rounded-[3rem] p-12 md:p-24 relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-r from-brand-primary/20 to-brand-accent/20 opacity-30">
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-20 items-center relative z-10">
+                    <div class="reveal-text">
+                        <h3 class="text-5xl md:text-6xl font-heading font-bold mb-8">Impacto Mensurable</h3>
+                        <p class="text-gray-300 text-xl mb-10 font-light">
+                            En el mundo de los datos, los números son el único lenguaje que importa.
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-8">
+                        <div
+                            class="text-center p-8 rounded-3xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-brand-neon/50 transition-colors">
+                            <div class="text-5xl md:text-6xl font-bold text-white mb-4 counter" data-target="300">0
+                            </div>
+                            <div class="text-brand-neon text-sm uppercase tracking-widest font-bold">% ROI</div>
+                        </div>
+                        <div
+                            class="text-center p-8 rounded-3xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-brand-accent/50 transition-colors">
+                            <div class="text-5xl md:text-6xl font-bold text-white mb-4 counter" data-target="50">0</div>
+                            <div class="text-brand-accent text-sm uppercase tracking-widest font-bold">Proyectos</div>
+                        </div>
+                        <div
+                            class="text-center p-8 rounded-3xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-brand-primary/50 transition-colors">
+                            <div class="text-5xl md:text-6xl font-bold text-white mb-4 counter" data-target="1000">0
+                            </div>
+                            <div class="text-brand-primary text-sm uppercase tracking-widest font-bold">Horas/Mes</div>
+                        </div>
+                        <div
+                            class="text-center p-8 rounded-3xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-white/50 transition-colors">
+                            <div class="text-5xl md:text-6xl font-bold text-white mb-4 counter" data-target="24">0</div>
+                            <div class="text-gray-400 text-sm uppercase tracking-widest font-bold">Soporte 24/7</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cases" class="py-32 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-4xl mx-auto mb-24 reveal-text">
+                <h2 class="text-brand-neon font-bold tracking-[0.2em] uppercase mb-4 text-sm">Casos de Estudio</h2>
+                <h3 class="text-5xl md:text-6xl font-heading font-bold mb-6">Resultados en Acción</h3>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-10">
+                <div
+                    class="glass-panel-pro rounded-[2.5rem] overflow-hidden group case-card opacity-0 translate-y-8 hover:border-brand-primary/50 transition-all duration-500">
+                    <div
+                        class="h-64 bg-gradient-to-br from-blue-900/50 to-black relative group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i data-lucide="truck"
+                                class="w-24 h-24 text-white/10 group-hover:text-brand-primary/50 transition-colors"></i>
+                        </div>
+                        <div class="absolute bottom-6 left-6">
+                            <span
+                                class="px-4 py-2 rounded-full bg-brand-primary/20 text-brand-primary text-sm font-bold border border-brand-primary/20 backdrop-blur-md">Logística</span>
+                        </div>
+                    </div>
+                    <div class="p-10">
+                        <h4 class="text-3xl font-bold mb-4">Optimización de Rutas</h4>
+                        <p class="text-gray-400 text-base mb-8">Reducción de costos operativos mediante algoritmos
+                            genéticos.</p>
+                        <div class="flex justify-between items-end border-t border-white/5 pt-6">
+                            <div>
+                                <div class="text-xs text-gray-500 uppercase font-bold mb-1">Ahorro</div>
+                                <div class="text-3xl font-bold text-white">40%</div>
+                            </div>
+                            <i data-lucide="arrow-up-right" class="w-8 h-8 text-brand-primary"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="glass-panel-pro rounded-[2.5rem] overflow-hidden group case-card opacity-0 translate-y-8 hover:border-brand-accent/50 transition-all duration-500">
+                    <div
+                        class="h-64 bg-gradient-to-br from-purple-900/50 to-black relative group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i data-lucide="message-square"
+                                class="w-24 h-24 text-white/10 group-hover:text-brand-accent/50 transition-colors"></i>
+                        </div>
+                        <div class="absolute bottom-6 left-6">
+                            <span
+                                class="px-4 py-2 rounded-full bg-brand-accent/20 text-brand-accent text-sm font-bold border border-brand-accent/20 backdrop-blur-md">E-commerce</span>
+                        </div>
+                    </div>
+                    <div class="p-10">
+                        <h4 class="text-3xl font-bold mb-4">Soporte Autónomo</h4>
+                        <p class="text-gray-400 text-base mb-8">Atención al cliente escalable con NLP avanzado.</p>
+                        <div class="flex justify-between items-end border-t border-white/5 pt-6">
+                            <div>
+                                <div class="text-xs text-gray-500 uppercase font-bold mb-1">Resolución</div>
+                                <div class="text-3xl font-bold text-white">90%</div>
+                            </div>
+                            <i data-lucide="arrow-up-right" class="w-8 h-8 text-brand-accent"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="glass-panel-pro rounded-[2.5rem] overflow-hidden group case-card opacity-0 translate-y-8 hover:border-brand-neon/50 transition-all duration-500">
+                    <div
+                        class="h-64 bg-gradient-to-br from-cyan-900/50 to-black relative group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i data-lucide="bar-chart-2"
+                                class="w-24 h-24 text-white/10 group-hover:text-brand-neon/50 transition-colors"></i>
+                        </div>
+                        <div class="absolute bottom-6 left-6">
+                            <span
+                                class="px-4 py-2 rounded-full bg-brand-neon/20 text-brand-neon text-sm font-bold border border-brand-neon/20 backdrop-blur-md">Retail</span>
+                        </div>
+                    </div>
+                    <div class="p-10">
+                        <h4 class="text-3xl font-bold mb-4">Forecasting IA</h4>
+                        <p class="text-gray-400 text-base mb-8">Predicción de inventario para minimizar pérdidas.</p>
+                        <div class="flex justify-between items-end border-t border-white/5 pt-6">
+                            <div>
+                                <div class="text-xs text-gray-500 uppercase font-bold mb-1">Eficiencia</div>
+                                <div class="text-3xl font-bold text-white">25%</div>
+                            </div>
+                            <i data-lucide="arrow-up-right" class="w-8 h-8 text-brand-neon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-32 relative z-10">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-24 reveal-text">
+                <h2 class="text-brand-neon font-bold tracking-[0.2em] uppercase mb-4 text-sm">FAQ</h2>
+                <h3 class="text-5xl md:text-6xl font-heading font-bold mb-6">Base de Conocimiento</h3>
+            </div>
+
+            <div class="space-y-8 faq-container">
+                <div class="glass-panel-pro rounded-2xl overflow-hidden transition-all duration-300">
+                    <button
+                        class="faq-toggle w-full px-10 py-8 text-left flex justify-between items-center focus:outline-none group">
+                        <span class="font-bold text-xl group-hover:text-brand-primary transition-colors">¿Tiempo de
+                            implementación?</span>
+                        <div
+                            class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-brand-primary/20 transition-colors">
+                            <i data-lucide="chevron-down" class="w-6 h-6 transition-transform duration-300"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content h-0 overflow-hidden transition-all duration-300">
+                        <div class="px-10 pb-10 text-gray-400 border-t border-white/5 pt-6 text-lg">
+                            Nuestros sprints de implementación son ágiles, típicamente de 2 a 4 semanas para MVPs
+                            funcionales.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-panel-pro rounded-2xl overflow-hidden transition-all duration-300">
+                    <button
+                        class="faq-toggle w-full px-10 py-8 text-left flex justify-between items-center focus:outline-none group">
+                        <span class="font-bold text-xl group-hover:text-brand-accent transition-colors">¿Requisitos
+                            técnicos?</span>
+                        <div
+                            class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-brand-accent/20 transition-colors">
+                            <i data-lucide="chevron-down" class="w-6 h-6 transition-transform duration-300"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content h-0 overflow-hidden transition-all duration-300">
+                        <div class="px-10 pb-10 text-gray-400 border-t border-white/5 pt-6 text-lg">
+                            Mínimos. Nos integramos con tu stack actual o desplegamos infraestructura independiente en
+                            la nube.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-panel-pro rounded-2xl overflow-hidden transition-all duration-300">
+                    <button
+                        class="faq-toggle w-full px-10 py-8 text-left flex justify-between items-center focus:outline-none group">
+                        <span class="font-bold text-xl group-hover:text-brand-neon transition-colors">¿Seguridad de
+                            datos?</span>
+                        <div
+                            class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-brand-neon/20 transition-colors">
+                            <i data-lucide="chevron-down" class="w-6 h-6 transition-transform duration-300"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content h-0 overflow-hidden transition-all duration-300">
+                        <div class="px-10 pb-10 text-gray-400 border-t border-white/5 pt-6 text-lg">
+                            Prioridad absoluta. Utilizamos encriptación de grado militar y entornos aislados. Firmamos
+                            NDA.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-32 relative z-10">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-brand-neon font-bold tracking-[0.2em] uppercase mb-4 text-sm">Contacto</h2>
+            <h3 class="text-5xl md:text-6xl font-heading font-bold mb-16">Inicia la Transición</h3>
+
+            <form class="glass-panel-pro p-12 rounded-[3rem] text-left space-y-10 relative overflow-hidden">
+                <div
+                    class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brand-primary via-brand-accent to-brand-neon">
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div class="space-y-3">
+                        <label class="text-sm font-bold text-gray-400 ml-2 uppercase tracking-wide">Identidad</label>
+                        <input type="text"
+                            class="w-full bg-black/40 border border-white/10 rounded-2xl px-8 py-5 text-white focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all"
+                            placeholder="Nombre completo">
+                    </div>
+                    <div class="space-y-3">
+                        <label class="text-sm font-bold text-gray-400 ml-2 uppercase tracking-wide">Coordenadas</label>
+                        <input type="email"
+                            class="w-full bg-black/40 border border-white/10 rounded-2xl px-8 py-5 text-white focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all"
+                            placeholder="correo@empresa.com">
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <label class="text-sm font-bold text-gray-400 ml-2 uppercase tracking-wide">Transmisión</label>
+                    <textarea rows="4"
+                        class="w-full bg-black/40 border border-white/10 rounded-2xl px-8 py-5 text-white focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition-all"
+                        placeholder="Detalles del proyecto..."></textarea>
+                </div>
+                <button type="submit"
+                    class="w-full py-6 btn-neon text-white font-bold rounded-2xl shadow-lg tracking-wide uppercase text-lg">
+                    Enviar Datos
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-black border-t border-white/5 py-20 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-10">
+                <a href="#" class="flex items-center">
+                    <img src="LOGO.png" alt="Synapsis IA Logo" class="h-25 md:h-35">
+                </a>
+                
+                <p class="text-gray-500 text-sm">
+                    &copy; 2025 Synapsis IA. Todos los derechos reservados. | Diseñado por la IA.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+<script>
+    // Smooth Scroll for Navigation Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+    // FAQ Toggle
+    document.querySelectorAll('.faq-toggle').forEach(button => {
+        button.addEventListener('click', () => {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('i');
+            if (content.style.height === '0px' || content.style.height === '') {
+                content.style.height = content.scrollHeight + 'px';
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                content.style.height = '0px';
+                icon.style.transform = 'rotate(0deg)';
+            }
+        });
+    });
+    // Initialize FAQ Content Heights to 0px
+    document.querySelectorAll('.faq-content').forEach(content => {
+        content.style.height = '0px';
+    });
+    // Simple Intersection Observer for Animations
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+                entry.target.classList.remove('opacity-0', 'translate-y-8');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    document.querySelectorAll('.reveal-text, .reveal-image').forEach(el => {
+        el.classList.add('opacity-0', 'translate-y-8');
+        observer.observe(el);
+    });
+    document.querySelectorAll('.case-card').forEach(el => {
+        el.classList.add('opacity-0', 'translate-y-8');
+        observer.observe(el);
+    });
+    // Contador de Cifras (KPIS)
+    document.addEventListener('DOMContentLoaded', () => {
+        const counters = document.querySelectorAll('.counter');
+                const startCounter = (target) => {
+            const targetValue = +target.getAttribute('data-target');
+            let count = 0;
+            const increment = targetValue / 200;
+            const updateCount = () => {
+                if (count < targetValue) {
+                    count += increment;
+                    target.innerText = Math.ceil(count);
+                    requestAnimationFrame(updateCount);
+                } else {
+                    target.innerText = targetValue;
+                }
+            };
+            updateCount();
+        };
+        const counterObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    startCounter(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.5
+        });
+        counters.forEach(counter => {
+            counterObserver.observe(counter);
+        });
+    });
+    // Initialize Lucide Icons
+    lucide.createIcons();
+</script>
+</body>
+</html>
